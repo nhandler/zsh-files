@@ -1,7 +1,7 @@
 zsh-files
 =========
 
-.. image:: http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png
+.. image:: http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-2.png
    :target: http://www.wtfpl.net/
    :alt: Do what the fuck you want
    :height: 25px
