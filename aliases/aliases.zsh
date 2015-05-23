@@ -10,6 +10,7 @@ alias ls='ls --group-directories-first --color=tty'
 alias tmux='tmux -2'
 alias psgrep='ps aux | grep'
 alias cdburn='wodim -v -sao dev=/dev/sr0'
+alias mkfs.ntfs='mkfs.ntfs -f'
 
 # network
 alias sshproxy='ssh -C2qTnN -D 0.0.0.0:8080'
