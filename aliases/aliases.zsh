@@ -35,3 +35,6 @@ alias dcreboot="docker-compose stop && docker-compose up -d"
 alias -g L=' | less'
 alias -g T=' | tail -20'
 alias -g NUL=' > /dev/null 2>&1'
+
+# Files
+alias diff='diff -uNr'
