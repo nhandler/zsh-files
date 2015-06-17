@@ -6,7 +6,6 @@ alias hist20="$ history | awk '{print $4}' | sort | uniq -c | sort -nr \
               | head -20"
 
 # General system
-alias ls='ls --group-directories-first --color=tty'
 alias tmux='tmux -2'
 alias psgrep='ps aux | grep'
 alias cdburn='wodim -v -sao dev=/dev/sr0'
@@ -37,4 +36,6 @@ alias -g T=' | tail -20'
 alias -g NUL=' > /dev/null 2>&1'
 
 # Files
+alias ls='ls --group-directories-first --color=tty'
 alias diff='diff -uNr'
+alias perms='stat -c "%A %a %n"'
