@@ -22,10 +22,12 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
 # path
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.1.0/bin"
 export PATH="$PATH:/opt/vc/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # history
 HIST_STAMPS="yyyy-mm-dd"
