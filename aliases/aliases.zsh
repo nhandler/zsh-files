@@ -10,6 +10,9 @@ alias tmux='tmux -2'
 alias psgrep='ps aux | grep'
 alias cdburn='wodim -v -sao dev=/dev/sr0'
 alias mkfs.ntfs='mkfs.ntfs -f'
+if hash ag 2> /dev/null; then
+  alias grep='ag'
+fi
 
 # network
 alias sshproxy='ssh -C2qTnN -D 0.0.0.0:8080'
