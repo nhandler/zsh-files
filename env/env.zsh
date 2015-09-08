@@ -30,7 +30,8 @@ if which ruby >/dev/null && which gem >/dev/null; then
 fi
 arcanist_path="$HOME/.local/share/arcanist/bin"
 [ -x "$arcanist_path" ] &&
-    export PATH="$PATH:$arcanist_path"
+    export PATH="$PATH:$arcanist_path" &&
+    source "$arcanist_path/resources/shell/bash-completion"
 
 # history
 HIST_STAMPS="yyyy-mm-dd"
