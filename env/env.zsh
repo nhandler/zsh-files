@@ -28,9 +28,9 @@ export PATH="$PATH:$HOME/.local/bin"
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
-arcanist_path="$HOME/.local/share/arcanist/bin"
+arcanist_path="$HOME/.local/share/arcanist"
 [ -x "$arcanist_path" ] &&
-    export PATH="$PATH:$arcanist_path" &&
+    export PATH="$PATH:$arcanist_path/bin" &&
     source "$arcanist_path/resources/shell/bash-completion"
 
 # history
