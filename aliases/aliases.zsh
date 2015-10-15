@@ -27,15 +27,11 @@ alias speedtest='echo "scale=2; `curl --progress-bar -w "%{speed_download}" \
 alias sortip='sort -t . -k 1,1n -k 2,2n -k 3,3n -k 4,4n'
 
 # docker
-alias drm="docker rm"
-alias dps="docker ps"
-alias dcreboot="docker-compose stop && docker-compose up -d"
-
-# SSH Options to account for some Cisco devices
-# alias ssh='ssh \
-#     -o KexAlgorithms=diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 \
-#     -o UserKnownHostsFile=/dev/null \
-#     -o StrictHostKeyChecking=no'
+if hash docker 2> /dev/null; then
+    alias drm="docker rm"
+    alias dps="docker ps"
+    alias dcreboot="docker-compose stop && docker-compose up -d"
+fi
 
 # ZSH Global Aliases
 alias -g L=' | less'
@@ -43,7 +39,13 @@ alias -g T=' | tail -20'
 alias -g NUL=' > /dev/null 2>&1'
 
 # Files
-alias ls='ls --group-directories-first --color=tty'
+#
+LS_CMD='ls --group-directories-first --color=tty'
+$LS_CMD 2&>1 > /dev/null
+if [ "$?" != 0 ]; then
+    alias ls=$LS_CMD
+fi
+
 alias diff='diff -uNr'
 alias perms='stat -c "%A %a %n"'
 alias mplayer='mpv'
