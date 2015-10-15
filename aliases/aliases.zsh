@@ -14,6 +14,10 @@ if hash ag 2> /dev/null; then
   alias grep='ag'
 fi
 
+if hash hub 2> /dev/null; then
+    alias git='hub'
+fi
+
 # network
 alias sshproxy='ssh -C2qTnN -D 0.0.0.0:8080'
 alias openconnect='sudo openconnect -b --pid-file /var/run/vpnc/openconnect.pid'
