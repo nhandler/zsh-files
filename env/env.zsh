@@ -15,7 +15,7 @@ export BROWSER='firefox'
 # virtualenvwrapper
 export WORKON_HOME=~/docs/envs
 export PROJECT_HOME=~/docs/projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7 
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
 # tmux
 [ -n "$TMUX" ] && export TERM=screen-256color
@@ -40,3 +40,4 @@ HISTFILE=~/.zsh_history
 # shell
 CASE_SENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+BULLETTRAIN_DIR_CONTEXT_SHOW=true
