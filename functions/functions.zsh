@@ -136,3 +136,6 @@ function taocl() {
         xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
         xmlstarlet unesc | fmt -80
 }
+
+# read markdown
+rmd () { pandoc $1 | lynx -stdin }
