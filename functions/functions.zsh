@@ -51,12 +51,12 @@ function di () {
         echo "Missing an argument"
     elif [[ $1 = '--net' ]] || [[ $1 = '-n' ]]
     then
-        docker inspect -f "{{ json .NetworkSettings }}" $2 | python -mjson.tool      
+        docker inspect -f "{{ json .NetworkSettings }}" $2 | python -mjson.tool
     elif [[ $1 = '--vol' ]] || [[ $1 = '-v' ]]
     then
-        docker inspect -f "{{ json .Volumes }}" $2 | python -mjson.tool      
+        docker inspect -f "{{ json .Volumes }}" $2 | python -mjson.tool
     else
-        docker inspect -f "{{ json $1 }}" $2 | python -mjson.tool      
+        docker inspect -f "{{ json $1 }}" $2 | python -mjson.tool
     fi
 }
 
@@ -139,3 +139,22 @@ function taocl() {
 
 # read markdown
 rmd () { pandoc $1 | lynx -stdin }
+
+# Convert RAW images to 2560px max-dimension JPEG @ 80 quality to ./output
+# check for presence of convert command first:
+if [ -x "$(which convert)" ]; then
+    function convert-raw-to-jpg() {
+        local quality=${1:-80};
+        local max_dim=${2:-2650};
+        local source_files=${3:-\*.CR2};
+        echo "Usage: convert-raw-to-jpg [quality=80] [max-dimension-px=2560] [source=\*.CR2]";
+        echo "Converting all ${source_files} to JPEG (${quality} quality, ${max_dim}px max) to output/...";
+        mkdir -p output 2> /dev/null;
+        find . -type f -iname "${source_files}" -print0 | \
+            xargs -0 -n 1 -P 8 -I {} convert -verbose -units PixelsPerInch {} \
+            -colorspace sRGB -resize ${max_dim}x${max_dim} -set filename:new '%t-%wx%h' \
+            -density 72 -format JPG -quality ${quality} 'output/%[filename:new].jpg';
+        echo 'Done.';
+
+    }
+fi;
