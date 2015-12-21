@@ -12,11 +12,6 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 export BROWSER='firefox'
 
-# virtualenvwrapper
-export WORKON_HOME=~/docs/envs
-export PROJECT_HOME=~/docs/projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-
 # tmux
 [ -n "$TMUX" ] && export TERM=screen-256color
 
