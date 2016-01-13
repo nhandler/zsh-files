@@ -42,7 +42,7 @@ alias -g NUL=' > /dev/null 2>&1'
 #
 LS_CMD='ls --group-directories-first --color=tty -X'
 $LS_CMD 1>&2 2> /dev/null
-if [ "$?" != 0 ]; then
+if [ "$?" == 0 ]; then
     alias ls=$LS_CMD
 fi
 
