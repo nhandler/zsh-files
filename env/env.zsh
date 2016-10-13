@@ -18,6 +18,9 @@ export BROWSER='firefox'
 # path
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+export GOPATH=$HOME
 
 # history
 HIST_STAMPS="yyyy-mm-dd"
